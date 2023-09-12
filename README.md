@@ -13,4 +13,5 @@ generate the dependenies and devDependenies wordcloud
 ```
 
 <!-- cloud:start -->
+see README.md, you will see the rules
 <!-- cloud:end -->
