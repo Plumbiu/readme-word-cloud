@@ -37,8 +37,6 @@ export function svgHTML(words) {
       console.log('保存成功！')
     }
   })
-
-  fs.writeFileSync('./word-cloud.png', img)
   return (
     '\n<div style="width:max-content;margin: auto;">' +
     d3n
