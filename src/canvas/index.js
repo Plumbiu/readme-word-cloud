@@ -16,7 +16,7 @@ export function svgHTML(words) {
   core.info(words)
   // TODO: diy height and width
   const layout = cloud()
-    .canvas(() => canvas = createCanvas(1, 1))
+    .canvas(() => (canvas = createCanvas(1, 1)))
     .size([600, 300])
     .words(words)
     .padding(5)
@@ -28,7 +28,16 @@ export function svgHTML(words) {
 
   layout.start()
   const img = canvas.toDataURL()
-  console.error(img)
+  const base64Data = img.replace(/^data:image\/\w+;base64,/, '')
+  const dataBuffer = Buffer.from(base64Data, 'base64') // 解码图片
+  fs.writeFile('image.png', dataBuffer, function (err) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('保存成功！')
+    }
+  })
+
   fs.writeFileSync('./word-cloud.png', img)
   return (
     '\n<div style="width:max-content;margin: auto;">' +
