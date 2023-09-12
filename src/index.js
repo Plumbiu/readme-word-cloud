@@ -10,7 +10,10 @@ function run() {
     core.error('README.md is not exist')
   }
   if (CLOUDLABEL.test(md)) {
-    const words = core.getInput('words')
+    let words = core.getInput('words')
+    if (!words) {
+      words = ['not', 'word', 'in', 'your', 'config']
+    }
     core.info('running~~~~')
     const label = CLOUDLABEL.exec(md)
     const input = label[0]

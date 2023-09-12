@@ -7,10 +7,10 @@ const options = { selector: '#chart', container: '<div id="chart"></div>' }
 const d3n = new D3Node(options)
 
 export function svgHTML(words) {
-  words = words?.map(d => ({
+  words = words.map(d => ({
     text: d,
     size: 10 + Math.random() * 90,
-  })) ?? ['not', 'word', 'in', 'your', 'config']
+  }))
   core.info(words)
   // TODO: diy height and width
   const layout = cloud()
