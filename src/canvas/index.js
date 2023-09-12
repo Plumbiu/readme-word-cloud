@@ -30,6 +30,7 @@ export function svgHTML(words) {
   const img = canvas.toDataURL()
   const base64Data = img.replace(/^data:image\/\w+;base64,/, '')
   const dataBuffer = Buffer.from(base64Data, 'base64') // 解码图片
+  console.log(dataBuffer)
   fs.writeFile('image.png', dataBuffer, function (err) {
     if (err) {
       console.log(err)

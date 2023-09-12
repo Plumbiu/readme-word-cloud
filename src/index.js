@@ -19,7 +19,6 @@ function run() {
     const input = label[0]
     const svg = input.replace(label[1], svgHTML(words))
     const newMd = md.replace(input, svg)
-    core.info(newMd)
     fs.writeFileSync('README.md', newMd)
     return
   }
