@@ -28,6 +28,7 @@ export function svgHTML(words) {
 
   layout.start()
   const img = canvas.toDataURL()
+  console.error(img)
   fs.writeFileSync('./word-cloud.png', img)
   return (
     '\n<div style="width:max-content;margin: auto;">' +
