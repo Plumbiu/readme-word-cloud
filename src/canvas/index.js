@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import { createCanvas } from 'canvas'
 import D3Node from 'd3-node'
 import cloud from 'd3-cloud'
@@ -6,7 +7,7 @@ import randomColor from './randomColor.js'
 
 const options = { selector: '#chart', container: '<div id="chart"></div>' }
 const d3n = new D3Node(options)
-
+let canvas
 export function svgHTML(words) {
   words = words.map(d => ({
     text: d,
@@ -15,7 +16,7 @@ export function svgHTML(words) {
   core.info(words)
   // TODO: diy height and width
   const layout = cloud()
-    .canvas(() => createCanvas(1, 1))
+    .canvas(() => canvas = createCanvas(1, 1))
     .size([600, 300])
     .words(words)
     .padding(5)
@@ -26,7 +27,8 @@ export function svgHTML(words) {
     .on('end', () => draw(layout, words))
 
   layout.start()
-
+  const img = canvas.toDataURL()
+  fs.writeFileSync('./word-cloud.png', img)
   return (
     '\n<div style="width:max-content;margin: auto;">' +
     d3n
