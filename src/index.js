@@ -22,7 +22,7 @@ function run() {
     const newMd = md.replace(input, svg)
     core.info(newMd)
     fs.writeFileSync('README.md', newMd)
-    exec(`git commit -am "docs: update word-cloud" --force`, error => {
+    exec(`git commit -am "docs: update word-cloud"`, error => {
       if (error) {
         console.error('error!:', error)
       } else {
