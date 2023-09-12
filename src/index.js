@@ -20,7 +20,8 @@ function run() {
     const input = label[0]
     const svg = input.replace(label[1], svgHTML(words))
     const newMd = md.replace(input, svg)
-    fs.writeFileSync('./README.md', newMd)
+    core.info(newMd)
+    fs.writeFileSync('README.md', newMd)
     exec(`git commit -am "docs: update word-cloud"`, error => {
       if (error) {
         console.error('error!:', error)
