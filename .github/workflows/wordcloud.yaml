@@ -28,16 +28,7 @@ jobs:
         node src/index.js
       with:
         # add word in here
-        words: [
-          'hello',
-          'foo',
-          'word',
-          'bar',
-          '你好',
-          '世界',
-          'cloud',
-          'word-cloud'
-        ]
+        words: ['hello', 'foo', 'word', 'bar', '你好', '世界', 'cloud', 'word-cloud']
     - name: Push changes to main branch
       uses: ad-m/github-push-action@master
       with:
