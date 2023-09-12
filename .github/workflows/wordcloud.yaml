@@ -25,7 +25,7 @@ jobs:
         node-version: 18
     - name: Install packages
       run: |
-        npm run install
+        npm install
     - name: Update wordcloud
       run: |
         node src/index.js
