@@ -1,6 +1,5 @@
 import fs, { readFileSync } from 'node:fs'
 import * as core from '@actions/core'
-import { exec } from 'child_process'
 import { svgHTML } from './canvas/index.js'
 
 const CLOUDLABEL = /<!-- cloud:start -->([\s\S]+)<!-- cloud:end -->/
@@ -22,13 +21,6 @@ function run() {
     const newMd = md.replace(input, svg)
     core.info(newMd)
     fs.writeFileSync('README.md', newMd)
-    exec(`git commit -am "docs: update word-cloud"`, error => {
-      if (error) {
-        console.error('error!:', error)
-      } else {
-        core.info('successful!')
-      }
-    })
     return
   }
   core.info('some thing is error')
