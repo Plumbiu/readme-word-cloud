@@ -1,6 +1,7 @@
 import { createCanvas } from 'canvas'
 import D3Node from 'd3-node'
 import cloud from 'd3-cloud'
+import * as core from '@actions/core'
 import randomColor from './randomColor.js'
 
 const options = { selector: '#chart', container: '<div id="chart"></div>' }
