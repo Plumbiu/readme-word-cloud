@@ -2,9 +2,9 @@ import * as esbuild from 'esbuild'
 await esbuild.build({
   entryPoints: ['src/index.js'],
   outdir: 'dist',
+  minify: true,
   bundle: true,
   treeShaking: true,
-  platform: 'node',
   loader: {
     '.node': 'file',
   },
