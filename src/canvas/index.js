@@ -26,7 +26,10 @@ export function svgHTML(words) {
     .on('end', () => draw(layout, words))
 
   layout.start()
-  const svg = d3n.svgString()
+  const svg = d3n.svgString().replace(
+    'xmlns="http://www.w3.org/2000/svg"',
+    'xmlns="http://www.w3.org/2000/svg" width="600" height="300'
+  )
   console.log(svg)
   sharp(Buffer.from(svg)).resize(600, 300).toFile('word-cloud.png', (err, info) => {
     if (err) {
