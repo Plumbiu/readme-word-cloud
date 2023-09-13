@@ -1,6 +1,6 @@
 name: WordCloud
 
-on: [push, workflow_call, workflow_dispatch]
+on: [push, workflow_call]
   # update wordcloud if has pull_request
   # pull_request:
     # branches: ["main"]
