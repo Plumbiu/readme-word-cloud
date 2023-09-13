@@ -14,7 +14,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        ref: ${{ github.head_ref }}
         fetch-depth: 0
     - name: Setup node.js
       uses: actions/setup-node@v3
@@ -39,4 +38,4 @@ jobs:
     - name: Push changes to main branch
       uses: ad-m/github-push-action@master
       with:
-        branch: ${{ github.head_ref }}
+        branch: word_cloud
