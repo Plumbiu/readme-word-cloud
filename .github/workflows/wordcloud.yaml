@@ -1,9 +1,9 @@
 name: WordCloud
 
-on: [pull_request, pull_request_target]
+on:
 
-  # push:
-  #   branches: ["main"]
+  push:
+    branches: ["main"]
   # update wordcloud if has pull_request
   # pull_request:
     # branches: ["main"]
