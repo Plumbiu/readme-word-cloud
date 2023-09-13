@@ -1,4 +1,3 @@
-import fs from 'node:fs'
 import { createCanvas } from 'canvas'
 import sharp from 'sharp'
 import D3Node from 'd3-node'
@@ -8,7 +7,6 @@ import randomColor from './randomColor.js'
 
 const options = { selector: '#chart', container: '<div id="chart"></div>' }
 const d3n = new D3Node(options)
-let canvas
 export function svgHTML(words) {
   words = words.map(d => ({
     text: d,
@@ -29,9 +27,7 @@ export function svgHTML(words) {
 
   layout.start()
   const svg = d3n.svgString()
-  const dataBuffer = Buffer.from(svg)
-  console.log(dataBuffer)
-  sharp(dataBuffer).png().resize(600, 300).toFile('word-cloud.png', (err, info) => {
+  sharp(Buffer.from(svg)).png().resize(600, 300).toFile('word-cloud.png', (err, info) => {
     if (err) {
       console.log('err', err)
     } else {
