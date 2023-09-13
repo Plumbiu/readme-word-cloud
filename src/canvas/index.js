@@ -27,7 +27,8 @@ export function svgHTML(words) {
 
   layout.start()
   const svg = d3n.svgString()
-  sharp(Buffer.from(svg)).resize(1000, 500).toFile('word-cloud.png', (err, info) => {
+  console.log(svg)
+  sharp(Buffer.from(svg)).resize(600, 300).toFile('word-cloud.png', (err, info) => {
     if (err) {
       console.log('err', err)
     } else {
