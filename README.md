@@ -4,4 +4,4 @@
 
 ## Usage
 
-![word-cloud](./word-cloud.png)
+![word-cloud](https://github.com/Plumbiu/readme-word-cloud/blob/main/word-cloud.png)
