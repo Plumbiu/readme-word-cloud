@@ -3,5 +3,6 @@ inputs:
     description: 'words in word-cloud.png file'
 runs:
   using: 'node16'
-  pre: 'scripts/build.js'
+  run: |
+    npm install
   main: 'src/index.js'
