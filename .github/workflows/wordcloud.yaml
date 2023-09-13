@@ -1,7 +1,10 @@
 name: WordCloud
 
 on:
-
+  workflow_call:
+    inputs:
+      words:
+        required: false
   push:
     branches: ["main"]
   # update wordcloud if has pull_request
