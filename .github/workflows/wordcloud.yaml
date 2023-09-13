@@ -23,7 +23,8 @@ jobs:
       run: |
         npm install
     - name: Update wordcloud
-      uses: ./
+      run: |
+        node src/index.js
     - name: Configure Git
       env:
         GIT_USERNAME: ${{ secrets.NAME }}
