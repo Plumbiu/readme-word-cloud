@@ -3,4 +3,5 @@ inputs:
     description: 'words in word-cloud.png file'
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  pre: 'scripts/build.js'
+  main: 'src/index.js'
