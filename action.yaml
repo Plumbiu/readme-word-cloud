@@ -1,0 +1,10 @@
+name: 'Word Cloud'
+description: 'Generate word cloud for your README.md'
+inputs:
+  words:
+    description: 'Words in the png file'
+    required: true
+    default: ['not', 'word', 'in', 'your', 'config']
+runs:
+  using: 'node18'
+  main: 'src/index.js'
