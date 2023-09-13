@@ -1,15 +1,10 @@
 name: WordCloud
 
-on:
-  workflow_call:
-    inputs:
-      words:
-  push:
-    branches: ["main"]
+on: [push, workflow_call, workflow_dispatch]
   # update wordcloud if has pull_request
   # pull_request:
     # branches: ["main"]
-  workflow_dispatch:
+  
 jobs:
   build:
     runs-on: ubuntu-latest
