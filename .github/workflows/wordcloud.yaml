@@ -31,11 +31,11 @@ jobs:
         GIT_USERNAME: ${{ secrets.NAME }}
         GIT_EMAIL: ${{ secrets.EMAIL }}
       run: |
-        git checkout word_cloud
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add .
         git commit -m "docs: update word-cloud"
+        git checkout -b word_cloud
     - name: Push changes to main branch
       uses: ad-m/github-push-action@master
       with:
