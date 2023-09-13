@@ -5,9 +5,8 @@ await esbuild.build({
   minify: true,
   bundle: true,
   treeShaking: true,
-  loader: {
-    '.node': 'file',
-  },
+  platform: 'node',
+  external: '*.node',
   format: 'esm',
   banner: {
     js: `import { createRequire as topLevelCreateRequire } from 'module';
