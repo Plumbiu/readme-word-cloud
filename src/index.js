@@ -15,11 +15,7 @@ function run() {
       words = ['not', 'word', 'in', 'your', 'config']
     }
     core.info('running~~~~')
-    const label = CLOUDLABEL.exec(md)
-    const input = label[0]
-    const svg = input.replace(label[1], svgHTML(words))
-    const newMd = md.replace(input, svg)
-    fs.writeFileSync('README.md', newMd)
+    svgHTML(words)
     return
   }
   core.info('some thing is error')

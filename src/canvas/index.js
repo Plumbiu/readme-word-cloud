@@ -31,23 +31,7 @@ export function svgHTML(words) {
   const base64Data = img.replace(/^data:image\/\w+;base64,/, '')
   const dataBuffer = Buffer.from(base64Data, 'base64') // 解码图片
   console.log(dataBuffer)
-  fs.writeFile('image.png', dataBuffer, function (err) {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log('保存成功！')
-    }
-  })
-  return (
-    '\n<div style="width:max-content;margin: auto;">' +
-    d3n
-      .svgString()
-      .replace(
-        'xmlns="http://www.w3.org/2000/svg"',
-        'xmlns="http://www.w3.org/2000/svg" ' + 'width="600" height="300"'
-      ) +
-    '</div>\n'
-  )
+  fs.writeFileSync('image.png', dataBuffer)
 }
 
 function draw(layout, words) {
