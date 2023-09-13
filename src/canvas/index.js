@@ -31,7 +31,7 @@ export function svgHTML(words) {
   const svg = d3n.svgString()
   const dataBuffer = Buffer.from(svg)
   console.log(dataBuffer)
-  sharp(dataBuffer).png().toFile('word-cloud.png', (err, info) => {
+  sharp(dataBuffer).png().resize(600, 300).toFile('word-cloud.png', (err, info) => {
     if (err) {
       console.log('err', err)
     } else {
