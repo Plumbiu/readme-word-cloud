@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import { createCanvas } from 'canvas'
+import sharp from 'sharp'
 import D3Node from 'd3-node'
 import cloud from 'd3-cloud'
 import * as core from '@actions/core'
@@ -16,7 +17,7 @@ export function svgHTML(words) {
   core.info(words)
   // TODO: diy height and width
   const layout = cloud()
-    .canvas(() => (canvas = createCanvas(1, 1)))
+    .canvas(() =>  createCanvas(1, 1))
     .size([600, 300])
     .words(words)
     .padding(5)
@@ -27,11 +28,16 @@ export function svgHTML(words) {
     .on('end', () => draw(layout, words))
 
   layout.start()
-  const img = canvas.toDataURL()
-  const base64Data = img.replace(/^data:image\/\w+;base64,/, '')
-  const dataBuffer = Buffer.from(base64Data, 'base64') // 解码图片
+  const svg = d3n.svgString()
+  const dataBuffer = Buffer.from(svg)
   console.log(dataBuffer)
-  fs.writeFileSync('image.png', dataBuffer)
+  sharp(dataBuffer).toFile('word-cloud', (err, info) => {
+    if (err) {
+      console.log('err', err)
+    } else {
+      console.log(info)
+    }
+  })
 }
 
 function draw(layout, words) {
