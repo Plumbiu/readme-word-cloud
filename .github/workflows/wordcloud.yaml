@@ -29,13 +29,11 @@ jobs:
         GIT_USERNAME: ${{ secrets.NAME }}
         GIT_EMAIL: ${{ secrets.EMAIL }}
       run: |
-        git config --global user.name "${GIT_USERNAME}"
-        git config --global user.email "${GIT_EMAIL}"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add .
         git commit -m "docs: update word-cloud"
     - name: Push changes to main branch
       uses: ad-m/github-push-action@master
       with:
-        branch: main
-        force: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
